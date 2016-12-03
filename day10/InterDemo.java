@@ -7,12 +7,14 @@ interface Usb {
 }
 
 
+//定义笔记本类
 class NoteBook {
 
     public void run() {
         System.out.println("The NoteBook run...");    
     }
 
+    //使用鼠标接口
     public void useUsb(Usb u) {
         u.open();
         u.close();
@@ -20,12 +22,15 @@ class NoteBook {
 }
 
 
+//定义鼠标类，实现了 Usb 接口
 class MouseByUsb implements Usb {
 
+    //覆盖接口方法
     public void open() {
         System.out.println("mouse is using...");
     }
 
+    //覆盖接口方法
     public void close() {
         System.out.println("mouse was closed...");
     }
