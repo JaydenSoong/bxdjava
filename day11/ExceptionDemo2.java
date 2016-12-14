@@ -4,7 +4,13 @@
  * 两种：
  * 1.遇到问题不进行具体的处理，而是抛给调用者。就是在方法上通过 throws 关键字声明异常。告诉调用者处理。
  *
+ * 2.针对性的处理方式：捕获！
  *
+ * try {
+      //有可能发生异常的代码  
+   } catch(异常类 变量) {
+      //处理异常的代码
+   }
  *
  */
 
@@ -26,11 +32,15 @@ class Demo {
 
 public class ExceptionDemo2 {
     
-    public static void main (String[] args) throws Exception {
+    public static void main (String[] args) /* throws Exception */ {
         
         int num;
         Demo d = new Demo();
-        num = d.div(4, 0);
-        System.out.println("num=" + num);
+        try {
+            num = d.div(4, 1);
+            System.out.println("num=" + num);
+        } catch(Exception e) {
+            System.out.println("有异常！");
+        }
     }
 }
