@@ -10,16 +10,27 @@
  */
 
 
+/*
+ *
+ * 同步方法，其实就是在方法签名上加上同步关键字 synchronized 进行修饰。
+ * 同步的表现形式有两种：1.同步代码块   2.同步方法
+ * 同步方法使用的锁对象，就是 this。
+ *
+ */
+
+
 class Bank {
     private int totalMoney;
+    //同步代码块的锁，可以是任意对象
     private Object obj = new Object();
 
-    public void saveMoney(int money) {
+    //同步方法，在方法上加上synchronized修饰符
+    public synchronized void saveMoney(int money) {
         //同步代码块，消除多线程安全隐患----操作共享数据的代码
-        synchronized(obj) {
+        //synchronized(obj) {
             totalMoney += money;
             System.out.println("totalMoney = " + totalMoney);
-        }
+        //}
     }
 }
 
