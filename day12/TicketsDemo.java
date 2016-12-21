@@ -6,6 +6,10 @@
  * 3.通过Thread类创建线程对象，并将实现了Runnable接口的对象作为Thread类的构造方法的参数进行传递。
  * 4.调用Thread类的start方法，开启线程。
  *
+ */
+
+
+/*
  * 实现Runnable接口的好处
  * 1.避免了继承Thread类的单继承的局限性。
  * 2.Runnable接口出现更符合面向对象，将线程单独进行线程的封装。
@@ -15,13 +19,42 @@
  */
 
 
+/*
+ * 多线程的安全问题
+ *
+ * 产生原因：
+ * 1.线程任务中有处理到共享数据。
+ * 2.线程任务中有多条对共享数据的操作。
+ * 一个线程在操作共享数据的过程中，其他线程参与了运算，造成了数据的错误。
+ *
+ * 解决思想：
+ * 只要保证多条操作共享数据的代码在某一时间段，被一条线程所执行，在执行期间不允许线程参与运算。
+ *
+ * 代码体现
+ * 用同步代码块
+ *
+ * synchronized(对象) { //任意对象皆可
+ *      //需要被同步的代码
+ * }
+ *
+ */
+
+
 class Tickets implements Runnable {
     private int tickets = 100;
-
+    Object obj = new Object();
     public void run() {
         while(true) {
-            if(tickets > 0) {
-                System.out.println(Thread.currentThread().getName() + "..." + tickets --);
+            //同步代码块
+            synchronized(obj) {
+                if(tickets > 0) {
+                    //让线程停20ms，以演示，多线程的安全问题。
+                    try {
+                        Thread.sleep(20);
+                    } catch (InterruptedException e){
+                    }
+                    System.out.println(Thread.currentThread().getName() + "..." + tickets --);
+                }
             }
         }
     }
