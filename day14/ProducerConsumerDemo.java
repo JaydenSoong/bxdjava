@@ -21,6 +21,7 @@
    可以通过Lock接口的newCondition()方法完成。
 
 但是，问题依旧，一样唤醒了本方。效率依旧低。
+解决问题：用两个监视器对象分别控制双方线程。
 
  */
 
@@ -35,21 +36,22 @@ class Res {
     //创建新的Lock
     private Lock l = new ReentrantLock();
     //创建和Lock绑定的监视器对象
-    private Condition c = l.newCondition();
+    private Condition producer_c = l.newCondition();
+    private Condition consumer_c = l.newCondition();
 
     public void set(String name) {  //同步方法
         //拿到锁之后，判断标记
         l.lock();
         try {
             while(flag)
-                try{c.await();} catch(InterruptedException e) {}
+                try{producer_c.await();} catch(InterruptedException e) {}
             this.name = name + "---" + num;
             num ++;
             System.out.println(Thread.currentThread().getName() + "...生产者..." + this.name);
             //生产者生产完成之后将标记改为true
             flag = true;
-            //唤醒线程池中的一个线程
-            c.signalAll();
+            //生产完成后，唤醒对方的一个线程
+            consumer_c.signal();
         } finally {
             l.unlock();
         }
@@ -60,12 +62,12 @@ class Res {
         try {
             //拿到锁之后，判断标记
             while(!flag)
-                try{c.await();} catch(InterruptedException e) {}
+                try{consumer_c.await();} catch(InterruptedException e) {}
             System.out.println(Thread.currentThread().getName() + "...消费者..." + this.name);
             //消费者生消费成之后将标记改为false
             flag = false;
-            //唤醒线程池中的一个线程
-            c.signalAll();    
+            //消费完成后，唤醒对方的一个线程
+            producer_c.signal();    
         } finally{
             l.unlock();
         }
