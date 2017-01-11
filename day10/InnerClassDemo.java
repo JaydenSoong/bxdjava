@@ -30,5 +30,8 @@ class Outer { //外部类
 public class InnerClassDemo {
     public static void main (String[] args) {
         new Outer().method();        
+        //创建内部类对象
+        Outer.Inner in = new Outer().new Inner();
+        in.show();
     }
 }
