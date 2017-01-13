@@ -49,6 +49,7 @@ public class StringTest {
         printArr(strs);
     }
 
+    //字符串排序
     public static void sort(String[] strs) {
         for(int i = 0; i < strs.length - 1; i ++) {
             for (int j = i + 1; j < strs.length; j++) {
@@ -57,6 +58,7 @@ public class StringTest {
         }
     }
 
+    //交换两个字符串
     public static void swap(String[] strs, int i, int j) {
         if(strs[i].compareTo(strs[j]) > 0){
             String temp = strs[i];
@@ -65,6 +67,7 @@ public class StringTest {
         }
     }
 
+    //遍历字符串方法
     public static void printArr(String[] strs) {
         for(int i = 0; i < strs.length; i ++){
             if(i != strs.length - 1)
