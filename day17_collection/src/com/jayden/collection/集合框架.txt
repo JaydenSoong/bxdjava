@@ -30,3 +30,22 @@ Collection 接口中的共性功能：
       迭代器：具备迭代功能的对象。
       迭代器对象不需要 new. 直接通过iterator()方法即可获取。
       迭代器是取出Collection集合中的元素的公共方法。
+
+----------------------------------------------------------------------------------------
+
+Collection
+    |
+    |---- List: 有序（存入的顺序和取出的顺序一致）。有索引，允许重复元素。
+    |---- Set: 不允许重复元素。
+
+重点：List接口中的特有方法：它的特有方法都是围绕索引定义的。
+
+支持增、删、改、查
+增：void add(int index, Object o)
+
+删：E remove(int index)
+
+改：E set(int index, Object o)
+
+查：int indexOf(Object o)
+    E get(int index)
