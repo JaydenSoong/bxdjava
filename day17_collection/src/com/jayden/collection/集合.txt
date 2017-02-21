@@ -1,0 +1,22 @@
+作用：集合存储的元素为对象。
+
+特点：集合的长度(size)是可变的。
+
+Collection 接口中的共性功能：
+    1.添加。
+      boolean add(Object o)   一次添加一个
+      boolean addAll(Collection c)  将指定容器中的所有元素添加
+
+    2.删除
+      void clear()  将集合中的所有元素清除
+      boolean remove(Object o)  将集合中的指定元素删除
+      boolean removeAll(Collection c)   将容器中包含的集合c的所有元素删除
+    3.获取长度
+      int size()
+    4.判断
+      boolean isEmpty() 判断是否为空
+      boolean contains(Object o)    判断是否包含某个对象
+      boolean containsAll(Collection c) 判断是否包含某个集合的所有对象
+    5.将集合转成数组
+      Object[] toArray(Collection c)
+
