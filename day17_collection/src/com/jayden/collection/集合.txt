@@ -11,12 +11,21 @@ Collection 接口中的共性功能：
       void clear()  将集合中的所有元素清除
       boolean remove(Object o)  将集合中的指定元素删除
       boolean removeAll(Collection c)   将容器中包含的集合c的所有元素删除
+
     3.获取长度
       int size()
+
     4.判断
       boolean isEmpty() 判断是否为空
       boolean contains(Object o)    判断是否包含某个对象
       boolean containsAll(Collection c) 判断是否包含某个集合的所有对象
+
     5.将集合转成数组
       Object[] toArray(Collection c)
 
+    6.取出集合元素
+      Iterator iterator()   Returns an iterator over the elements in this collection.
+      取出集合集合中元素上迭代功能的迭代器对象。
+      迭代：取出元素的一种方式。
+      迭代器：具备迭代功能的对象。
+      迭代器对象不需要 new. 直接通过iterator()方法即可获取。
