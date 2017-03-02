@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import static com.jayden.arraylist.ArrayListTest2.singleArrayList_oop;
+
 /**
  * Created by DaiLiang on 2017/3/2.
  */
@@ -31,12 +33,24 @@ public class ArrayListTest {
         lst.add(p1);
         lst.add(p2);
         lst.add(new Person("Shun", 18));
+        lst.add(new Person("Zhao", 20));
+        lst.add(new Person("Qian", 30));
+        lst.add(new Person("Shun", 18));
 
 //        4.迭代器方法取出对象
+        iteratorPrint(lst);
+        singleArrayList_oop((ArrayList) lst);
+        System.out.println("--------------------------");
+        iteratorPrint(lst);
+
+    }
+
+    private static void iteratorPrint(List lst) {
         for (Iterator iterator = lst.iterator(); iterator.hasNext(); ) {
             Person next = (Person) iterator.next();
-//            System.out.println(next.toString());
-            System.out.println(next.getName() + ":" + next.getAge());
+            System.out.println(next.toString());
         }
     }
+
+
 }
