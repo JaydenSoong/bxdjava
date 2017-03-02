@@ -8,6 +8,18 @@ public class Person {
     private int age;
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+
+        if(!(obj instanceof Person)) {
+            throw new ClassCastException("类型错误");
+        }
+        Person p = (Person) obj;
+        return this.getName().equals(p.getName()) && this.getAge() == p.getAge();
+    }
+
+    @Override
     public String toString() {
         return "Person{" +
                 "name='" + name + '\'' +
