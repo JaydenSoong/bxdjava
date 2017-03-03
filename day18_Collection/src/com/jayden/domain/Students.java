@@ -70,13 +70,11 @@ public class Students implements Comparable {
     /**
      * 学生就具有了比较功能，该功能是自然排序所使用的方法。
      * 以年龄的升序排序为主。
+     * 年龄相同，按姓名排序。
      */
     @Override
     public int compareTo(Object o) {
-        if (this.age > ((Students) o).age)
-            return 1;
-        if (this.age < ((Students) o).age)
-            return -1;
-        return 0;
+       int temp = this.age - ((Students) o).age;
+       return temp == 0 ? this.name.compareTo(((Students)o).name) : temp;
     }
 }
