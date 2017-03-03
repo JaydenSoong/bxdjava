@@ -3,7 +3,7 @@ package com.jayden.domain;
 /**
  * Created by DaiLiang on 2017/3/3.
  */
-public class Students {
+public class Students implements Comparable {
     private String name;
     private int age;
 
@@ -57,5 +57,26 @@ public class Students {
         }
 
         return this.name.equals(((Students) obj).name) && this.age == ((Students) obj).age;
+    }
+
+    @Override
+    public String toString() {
+        return "Students{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    /**
+     * 学生就具有了比较功能，该功能是自然排序所使用的方法。
+     * 以年龄的升序排序为主。
+     */
+    @Override
+    public int compareTo(Object o) {
+        if (this.age > ((Students) o).age)
+            return 1;
+        if (this.age < ((Students) o).age)
+            return -1;
+        return 0;
     }
 }
