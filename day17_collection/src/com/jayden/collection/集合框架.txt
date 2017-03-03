@@ -74,3 +74,12 @@ Set集合：不允许重复元素，和Collection的方法相同。Set集合取�
 
             比较器：实现Comparator接口，覆盖compare()方法。
             将比较器对象作为参数传递给TreeSet集合的构造方法。
+
+技巧：
+jdk1.2以后出现的集合框架中的常用子类对象，存在规律——前缀名是数据结构，后缀名是框架体系。
+
+ArrayList：数组结构。Array——查询快，List可重复，可增删改查。
+LinkedList：链表结构。增删快，xxxFirst(), xxxLast(), xxx:get add remove
+HashSet：哈希表，需覆盖hashCode(),equals()方法。不保证有序，不可以重复。
+LinkedHashSet：链表+哈希表，可以实现有序。
+TreeSet：二叉树结构，可以排序。一种是自然排序，一种是比较器排序。
