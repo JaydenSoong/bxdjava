@@ -17,6 +17,7 @@ public class TreeSetDemo {
                                                            //比较add中使用的是Comparable接口的比较方法。
         set.add(new Students("lisi", 20));
         set.add(new Students("wangwu", 16));
+        set.add(new Students("zhangwu", 16));
 
         for (Iterator iterator = set.iterator(); iterator.hasNext(); ) {
             Students next = (Students) iterator.next();
