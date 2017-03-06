@@ -14,5 +14,6 @@ public class StringTest2 {
     public static void test(String s1, String s2){
         s2.replace('a', 'o');
         s1 = s2;
+        //System.out.println(s1 + "..." + s2);
     }
 }

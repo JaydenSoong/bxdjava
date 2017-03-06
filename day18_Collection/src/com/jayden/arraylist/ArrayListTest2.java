@@ -47,7 +47,7 @@ public class ArrayListTest2 {
     }
 
 //    方式二
-    private static void singleArrayList_oop(ArrayList al) {
+    public static void singleArrayList_oop(ArrayList al) {
 //        1.创建临时容器
         ArrayList al2 = new ArrayList();
 //        2.取出原容器中的元素
