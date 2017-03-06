@@ -5,11 +5,9 @@ import java.util.List;
 
 /**
  * Created by DaiLiang on 2017/3/6.
+ * 泛型演示
  */
 public class GenericDemo {
-    /**
-     * 泛型演示
-     */
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
