@@ -36,8 +36,7 @@ public class GenericDemo7 {
     }
 
     private static void printCollection(Collection<?> coll) { // 在不明确具体类型的情况下，可以使用通配符来表示
-        for (Iterator<?> it = coll.iterator(); it.hasNext(); ) {
-            Object next =  it.next();
+        for (Object next : coll) {
             System.out.println(next);
         }
         System.out.println("-----------------------------");
