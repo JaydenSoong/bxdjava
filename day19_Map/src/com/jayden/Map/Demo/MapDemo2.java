@@ -15,7 +15,7 @@ public class MapDemo2 {
         showJiGuan(jiguan);
     }
 
-    private static void baoming(Map<String, String> jiguan) {
+    public static void baoming(Map<String, String> jiguan) {
         jiguan.put("孙悟空", "花果山，水帘洞");
         jiguan.put("猪八戒", "高老庄");
         jiguan.put("沙悟净", "流沙河");
