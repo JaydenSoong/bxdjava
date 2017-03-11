@@ -9,7 +9,7 @@ import java.io.File;
  * Created by DaiLiang on 2017/3/10.
  * 文件名过滤器的演示
  */
-public class FileFilterDemo {
+public class FileNameFilterDemo {
     public static void main(String[] args) {
         File f = new File("G:\\bxdjava\\day03");
         myGetFiles(f);
