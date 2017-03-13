@@ -1,4 +1,4 @@
-package com.jayden.ByteStream;
+package com.jayden.ByteStream.Demo;
 
 import java.io.File;
 import java.io.FileOutputStream;
