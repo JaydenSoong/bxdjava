@@ -17,13 +17,25 @@ public class Test {
     public static void main(String[] args) {
 //        1、指定目录
         File dir = new File("G:\\bxdjava");
-//        2、定义集合
-        List<File> list = new ArrayList<>();
-//        3、定义过滤器
-        FileFilter filter = new FilterBySuffix(".xml");
 
-        getFiles(dir, list, filter);
+//        2、获取集合
+        List<File> list = FileList(dir, ".java");
+
+//        3、打印集合
         printList(list);
+    }
+
+    private static List<File> FileList(File dir,String suff) {
+//        1、定义集合
+        List<File> list = new ArrayList<>();
+
+//        2、定义过滤器
+        FileFilter filter = new FilterBySuffix(suff);
+
+//        3、调用获取满足指定条件的集合的方法
+        getFiles(dir, list, filter);
+
+        return list;
     }
 
     /**
