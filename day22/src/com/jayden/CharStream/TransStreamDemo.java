@@ -15,28 +15,14 @@ public class TransStreamDemo {
 
     private static void readCNText() throws IOException {
 //        创建文件输入流对象
-        FileInputStream fis = new FileInputStream("temp_files\\gbk.txt");
+        FileInputStream fis = new FileInputStream("temp_files\\U8.txt");
 //        创建字符流对象——桥梁
-        InputStreamReader inr = new InputStreamReader(fis);
+        InputStreamReader inr = new InputStreamReader(fis,"UTF-8");
 //        读取中文
-        int ch1 = inr.read();
-        System.out.println("ch1 = " + (char) ch1);
-        int ch2 = inr.read();
-        System.out.println("ch2 = " + (char) ch2);
-        int ch3 = inr.read();
-        System.out.println("ch3 = " + (char) ch3);
-        int ch4 = inr.read();
-        System.out.println("ch4 = " + (char) ch4);
-        int ch5 = inr.read();
-        System.out.println("ch5 = " + (char) ch5);
-        int ch6 = inr.read();
-        System.out.println("ch6 = " + (char) ch6);
-        int ch7 = inr.read();
-        System.out.println("ch7 = " + (char) ch7);
-        int ch8 = inr.read();
-        System.out.println("ch8 = " + (char) ch8);
-        int ch9 = inr.read();
-        System.out.println("ch9 = " + (char) ch9);
+        int ch;
+        while ((ch = inr.read()) != -1) {
+            System.out.println((char) ch);
+        }
 
 //        关闭资源
         inr.close();
