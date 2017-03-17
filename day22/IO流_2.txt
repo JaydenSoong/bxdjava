@@ -1,0 +1,49 @@
+File:IO 技术是用于操作设备上的数据的，而数据最常见的体现方式就是文件。
+先了解了文件的操作。
+    创建 createNewFile()、删除 delete()、存在 exists()、隐藏 isHidden() 、获取 list() listFiles() ......
+
+需求：怎么操作文件的数据呢？
+    使用 IO 流对象，而且文件数据都是字节存在。
+学习了可以操作文件的字节流
+    InputStream
+        |-- FileInputStream
+    OutputStream
+        |-- FileOutputStream
+
+为了提高操作效率，引入了缓冲区。
+    InputStream
+        |-- FileInputStream
+        |-- FilterInputStream
+                |-- BufferedInputStream
+    OutputStream
+        |-- FileOutputStream
+        |-- FilterOutputStream
+                |-- BufferedOutputStream
+
+发现，在文件数据中，媒体文件字节流没问题。
+但是对于文本文件，想要操作文中的中文数据时，字节流只能操作字节，需要我们将字节解码成字符，比较麻烦。
+所以就有了 Reader、Writer。
+    Reader
+        |-- InputStreamReader: 字节 --> 字符
+    Writer
+        |-- OutputStreamWriter: 字符 --> 字节
+解决了中文的编码转换问题。
+
+为了便捷操作字符文件，就找到了转换流的子类，但是它有局限性，只能操作文件，而且是默认编码。如果不操作文件，而且
+编码不是默认的，需要转换流。
+    Reader
+        |-- InputStreamReader: 字节 --> 字符
+                |-- FileReader
+    Writer
+        |-- OutputStreamWriter: 字符 --> 字节
+                |-- FileWriter
+
+为了提高字符流的操作效率，引入了字符流的缓冲区
+    Reader
+        |-- InputStreamReader: 字节 --> 字符
+        |        |-- FileReader
+        |-- BufferedReader
+    Writer
+        |-- OutputStreamWriter: 字符 --> 字节
+        |        |-- FileWriter
+        |-- BufferedWriter
