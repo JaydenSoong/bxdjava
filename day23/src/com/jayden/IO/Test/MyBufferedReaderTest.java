@@ -1,6 +1,7 @@
 package com.jayden.IO.Test;
 
 import com.jayden.IO.MyBufferedReader;
+import com.jayden.IO.MyLineNumberReader;
 
 import java.io.*;
 
@@ -17,10 +18,11 @@ public class MyBufferedReaderTest {
 //            System.out.println(line);
 //        }
 //        br.close();
-        MyBufferedReader mbr = new MyBufferedReader(new FileReader(file));
+//        MyBufferedReader mbr = new MyBufferedReader(new FileReader(file));
+        MyLineNumberReader mbr = new MyLineNumberReader(new FileReader(file));
         String line;
         while ((line = mbr.myReadline()) != null){
-            System.out.println(line);
+            System.out.println(mbr.getLineNum() + ":" +line);
         }
         mbr.myClose();
     }
