@@ -1,9 +1,6 @@
 package com.jayden.properties.Demo;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 import java.util.Set;
 
@@ -16,8 +13,22 @@ public class PropertiesDemo {
   //        1、创建 Properties 集合。
         Properties prop = new Properties();
         setProperties(prop);
-        propertiesMethodDemo(prop);
+//        propertiesMethodDemo(prop);
         propertiesStoreMethodDemo(prop);
+        propertiesLoadMethodDemo();
+    }
+
+    private static void propertiesLoadMethodDemo() throws IOException {
+        File configFile = new File("temp_files\\info.properties");
+        FileReader fr = new FileReader(configFile);
+        Properties prop = new Properties();
+        prop.load(fr);
+        prop.setProperty("zhangsan", "31");
+        FileWriter fw = new FileWriter(configFile);
+        prop.store(fw, "modify Zhangsan");
+        fr.close();
+        fw.close();
+//        prop.list(System.out);
     }
 
     public static void setProperties(Properties prop) {
