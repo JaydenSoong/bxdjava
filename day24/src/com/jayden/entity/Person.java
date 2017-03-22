@@ -13,7 +13,8 @@ public class Person implements Serializable{
     // 给类显示声明一个序列版本号
     private static final long serialVersionUID = 1L;
     private String name;
-    private int age;
+    // transient 瞬态关键字,防止被序列化
+    private transient int age;
 
     public Person() {
     }
