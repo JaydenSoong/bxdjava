@@ -10,7 +10,7 @@ import java.io.*;
  */
 public class ObjectStreamDemo {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        writeObject();  //对象的序列化
+//        writeObject();  //对象的序列化
         readObject();   //对象的反序列化
     }
 
