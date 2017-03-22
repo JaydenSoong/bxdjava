@@ -21,4 +21,15 @@ PrintWriter: 一样具备打印功能。
 用于操作对象的流对象，对象的序列化。
 ObjectInputStream   ObjectOutputStream
 特点：用于操作对象。
-解决问题：对象的持久化存储（序列化）
+解决问题：对象的持久化存储（序列化）。注意，对象序列化一定要实现 Serializable 接口。要给类定义一个 serialVersionUID。
+功能：ObjectInputStream    readObject()；   ObjectOutputStream writeObject()
+关键字：瞬态 transient
+------------------------------------------------------------------------------
+RandomAccessFile:
+特点：只能操作文件
+      既能读，又能写
+      维护了一个 byte 数组，内部定义了字节流的读取和写入
+      通过对指针的操作可以实现文件的任意位置的读取和写入
+
+功能：getFilePointer seek 用于操作文件指针的方法
+
