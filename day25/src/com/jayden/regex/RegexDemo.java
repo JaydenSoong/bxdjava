@@ -6,8 +6,10 @@ package com.jayden.regex;
  */
 public class RegexDemo {
     public static void main(String[] args) {
-        String QQ = "33k456";
-        checkQQ(QQ);
+        String QQ = "622256";
+//        checkQQ(QQ);
+        boolean b = QQ.matches("[1-9][0-9]{4,14}");
+        System.out.println(QQ + ":" + b);
     }
 
     /**
