@@ -1,1 +1,13 @@
-正则表达式
+正则表达式：正确的规则， 专门用于对字符串的操作。
+           规则是由符号组成的，使操作字符串变得简单。所以学习正则就是学习符号。
+弊端：阅读性降低了。
+
+应用：
+    1、匹配
+       String 类中提供了匹配的方法。boolean matches(regex)
+    2、切割
+       String 类中也提供了匹配的方法。String[] split(regex)
+    3、替换
+       String replaceAll(String regex, String replacement)
+       String replaceFirst(String regex, String replacement)
+    4、获取
