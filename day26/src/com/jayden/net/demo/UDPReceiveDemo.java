@@ -6,7 +6,7 @@ import java.net.DatagramSocket;
 
 /**
  * Created by DaiLiang on 2017/3/27.
- * UDP 协议发送演示
+ * UDP 协议接收演示
  */
 public class UDPReceiveDemo {
     /*
