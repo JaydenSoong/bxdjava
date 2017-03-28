@@ -11,9 +11,10 @@ import java.net.Socket;
  */
 public class MyBrowser {
     public static void main(String[] args) throws IOException {
-        Socket s = new Socket("192.168.3.120", 8080);
+        Socket s = new Socket("192.168.3.33", 9090);
+//        请求头信息
         PrintWriter pw = new PrintWriter(s.getOutputStream(),true);
-        pw.println("GET /1.html HTTP/1.1");
+        pw.println("GET /index.html HTTP/1.1");
         pw.println("Accept: text/html, application/xhtml+xml, image/jxr, */*");
         pw.println("Accept-Language: zh-CN");
         pw.println("User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko");
@@ -21,6 +22,7 @@ public class MyBrowser {
         pw.println("Host: 192.168.3.33:9090");
         pw.println("Connection: Keep-Alive");
 
+//        读取反馈信息
         InputStream is = s.getInputStream();
         byte[] buf = new byte[1024];
         int len = is.read(buf);
