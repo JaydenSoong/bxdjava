@@ -15,4 +15,16 @@ public class Person {
         this.name = name;
         this.age = age;
     }
+
+    public void run(){
+        System.out.println("Person run");
+    }
+
+    public static void staticRun(){
+        System.out.println("Static Person run");
+    }
+
+    public void pramRun(String name, int age){
+        System.out.println(name + "---------" + age + ": run");
+    }
 }
